@@ -14,8 +14,8 @@ project (datastructures-implementations LANGUAGES C)
 add_executable (${PROJECT_NAME} main.c)
 
 # Add Core Library
-add_subdirectory(Core)
-target_link_libraries(${PROJECT_NAME} PRIVATE Core)
+add_subdirectory(core)
+target_link_libraries(${PROJECT_NAME} PRIVATE core)
 
 # VS Gen stuff
 if (CMAKE_VERSION VERSION_GREATER 3.12)
