@@ -1,27 +1,29 @@
 # CMakeList.txt : CMake project for datastructures-implementations core library
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.10)
 
 # Grab all source files
 
-# Stack Source Files
-set (STACK_SOURCES   
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/stacks/sized-int-stack.c"
-)
-
 # Queue Source Files
 set (QUEUE_SOURCES
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/queues/sized-int-queue.c"    
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/queues/int-circ-queue.c"   
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/queues/generic-ll-queue.c"  
+)
+
+# Stack Source Files
+set (STACK_SOURCES   
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/stacks/int-circ-stack.c"
 )
 
 # Combine source files
 add_library(core STATIC
-    ${STACK_SOURCES}
     ${QUEUE_SOURCES}
+    ${STACK_SOURCES}
 )
 
 # Expose headers
 target_include_directories(core
     PUBLIC
-    "${CMAKE_CURRENT_SOURCE_DIR}/include/stacks"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/common"
     "${CMAKE_CURRENT_SOURCE_DIR}/include/queues"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/stacks"
 )

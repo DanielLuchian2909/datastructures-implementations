@@ -10,8 +10,7 @@
 /************************************
  * INCLUDES
  ************************************/
-#include "sized-int-queue.h"
-#include <stdio.h>
+#include "int-circ-queue.h"
 
 /************************************
  * EXTERN VARIABLES
@@ -46,21 +45,20 @@
  ************************************/
 //-----------------------------------------------------------------------
 void 
-si_queue_init(         // Function to init a fixed size int queue
-    SI_Queue* const q) // Ptr to a queue to init
+ic_queue_init(         // Function to init a fixed size int queue
+    IC_Queue* const q) // Ptr to a queue to init
 {
-    q->front_ = 0;
-    q->rear_ = 0;
+    q->front_ = q->rear_ = 0;
 }
 
 //-----------------------------------------------------------------------
 bool                   // True if enqueued successfully, false otherwise
-si_queue_enqueue(      // Function to enqueue
-    SI_Queue* const q, // Ptr to a queue 
+ic_queue_enqueue(      // Function to enqueue
+    IC_Queue* const q, // Ptr to a queue 
     const int val)     // Val to enqueue
 {
     // If queue is full return false, otherwise enqueue
-    if (si_queue_full(q))
+    if (ic_queue_full(q))
     {
         return false;
     }
@@ -73,12 +71,12 @@ si_queue_enqueue(      // Function to enqueue
 
 //-----------------------------------------------------------------------
 bool
-si_queue_dequeue(          // Function to dequeue
-    SI_Queue* const q,     // Ptr to a queue
+ic_queue_dequeue(          // Function to dequeue
+    IC_Queue* const q,     // Ptr to a queue
     int* const return_val) // Pointer to variable to store dequeued value
 {
     // If queue empty return false, otherwise dequeue
-    if (si_queue_empty(q))
+    if (ic_queue_empty(q))
     {
         return false;
     }
@@ -91,12 +89,12 @@ si_queue_dequeue(          // Function to dequeue
 
 //-----------------------------------------------------------------------
 bool           // True if a valid element was returned
-si_queue_top(  // Function to return top element
-    const SI_Queue* const q, // Ptr to a queue 
+ic_queue_top(  // Function to return top element
+    const IC_Queue* const q, // Ptr to a queue 
     int* const return_val)   // Ptr to return buffer
 {
     // If queue is empty return false, otherwise put value and return true
-    if (si_queue_empty(q))
+    if (ic_queue_empty(q))
     {
         return false;
     }
@@ -106,24 +104,24 @@ si_queue_top(  // Function to return top element
 
 //-----------------------------------------------------------------------
 bool             // True if queue empty, false otherwise
-si_queue_empty(  // Function to return if queue is empty
-    const SI_Queue* const q) // Ptr to a queue
+ic_queue_empty(  // Function to return if queue is empty
+    const IC_Queue* const q) // Ptr to a queue
 {
     return (q->front_ == q->rear_);
 }
 
 //-----------------------------------------------------------------------
 bool            // True if queue full, false otherwise
-si_queue_full(  // Function to retunr if queue is full
-    const SI_Queue* const q) // Ptr to a queue
+ic_queue_full(  // Function to retunr if queue is full
+    const IC_Queue* const q) // Ptr to a queue
 {
     return (WRAP_AROUND(q->rear_) == q->front_);
 }
 
 //-----------------------------------------------------------------------
 void
-si_queue_print( // Function to print queue elements
-    const SI_Queue* const q) // Ptr to a queue
+ic_queue_print( // Function to print queue elements
+    const IC_Queue* const q) // Ptr to a queue
 {
     size_t temp = q->front_;
 
