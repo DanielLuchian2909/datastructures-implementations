@@ -11,7 +11,7 @@ set (QUEUE_SOURCES
 
 # Stack Source Files
 set (STACK_SOURCES   
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/stacks/int-circ-stack.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/stacks/int-arr-stack.c"
 )
 
 # Combine source files
