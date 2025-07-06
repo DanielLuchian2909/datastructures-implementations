@@ -10,9 +10,9 @@
 /************************************
  * INCLUDES
  ************************************/
-#include <stdio.h>
-#include "sized-int-queue.h"
-#include "sized-int-stack.h"
+#include "int-circ-queue.h"
+#include "int-circ-stack.h"
+#include "generic-ll-queue.h"
 
 /************************************
  * EXTERN VARIABLES
@@ -46,9 +46,9 @@
  * GLOBAL FUNCTIONS
  ************************************/
 //-----------------------------------------------------------------------
-int main()
-{
-    printf("Hello world\n");
+int main() {
+    
+    printf("Hello World\n");
 
     return 0;
 }

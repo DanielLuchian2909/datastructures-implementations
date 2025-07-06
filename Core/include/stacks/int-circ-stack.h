@@ -11,9 +11,7 @@
 /************************************
  * INCLUDES
  ************************************/
-#include <stdbool.h>
-#include <stdlib.h>
-#include <stddef.h>
+#include "common.h"
 
 /************************************
  * MACROS AND DEFINES
@@ -24,11 +22,11 @@
  * TYPEDEFS
  ************************************/
 /* Structure for an integer fixed size stack */
-typedef struct
+typedef struct IC_Stack
 {
     size_t top_; // Index of top of stack
     int arr_[DS_SIZED_INT_STACK_SIZE]; // Array holding stack data
-} SI_Stack;
+} IC_Stack;
 
 /************************************
  * EXPORTED VARIABLES
@@ -38,10 +36,10 @@ typedef struct
  * GLOBAL FUNCTION PROTOTYPES
  ************************************/
 /* Stack Functions */
-void si_stack_init(SI_Stack* const s);
-bool si_stack_push(SI_Stack* const s, const int val);
-bool si_stack_pop(SI_Stack* const s, int* const return_val);
-bool si_stack_top(const SI_Stack* const s, int* const return_val);
-bool si_stack_empty(const SI_Stack* const s);
-bool si_stack_full(const SI_Stack* const s);
-void si_stack_print(const SI_Stack* const s);
+void ic_stack_init(IC_Stack* const s);
+bool ic_stack_push(IC_Stack* const s, const int val);
+bool ic_stack_pop(IC_Stack* const s, int* const return_val);
+bool ic_stack_top(const IC_Stack* const s, int* const return_val);
+bool ic_stack_empty(const IC_Stack* const s);
+bool ic_stack_full(const IC_Stack* const s);
+void ic_stack_print(const IC_Stack* const s);

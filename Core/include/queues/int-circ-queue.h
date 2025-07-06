@@ -12,9 +12,7 @@
 /************************************
  * INCLUDES
  ************************************/
-#include <stdlib.h>
-#include <stdbool.h>
-#include <stddef.h>
+#include "common.h"
 
 /************************************
  * MACROS AND DEFINES
@@ -39,12 +37,12 @@
  * TYPEDEFS
  ************************************/
 /* Fixed Size Integer Queue */
-typedef struct
+typedef struct IC_Queue
 {
     size_t front_; // Index of front of queue (dequeue)
     size_t rear_;  // Index of back of queue (enqueue)
     int arr_[DS_SIZED_INT_QUEUE_SIZE]; // Array holding data of queue
-} SI_Queue;
+} IC_Queue;
 
 /************************************
  * EXPORTED VARIABLES
@@ -54,10 +52,10 @@ typedef struct
  * GLOBAL FUNCTION PROTOTYPES
  ************************************/
 /* Queue Functions */
-void si_queue_init(SI_Queue* const q);
-bool si_queue_enqueue(SI_Queue* const q, const int val);
-bool si_queue_dequeue(SI_Queue* const q, int* const return_val);
-bool si_queue_top(const SI_Queue* const q, int* const return_val);
-bool si_queue_empty(const SI_Queue* const q);
-bool si_queue_full(const SI_Queue* const q);
-void si_queue_print(const SI_Queue* const q);
+void ic_queue_init(IC_Queue* const q);
+bool ic_queue_enqueue(IC_Queue* const q, const int val);
+bool ic_queue_dequeue(IC_Queue* const q, int* const return_val);
+bool ic_queue_top(const IC_Queue* const q, int* const return_val);
+bool ic_queue_empty(const IC_Queue* const q);
+bool ic_queue_full(const IC_Queue* const q);
+void ic_queue_print(const IC_Queue* const q);
