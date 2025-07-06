@@ -11,7 +11,7 @@
  * INCLUDES
  ************************************/
 #include "int-circ-queue.h"
-#include "int-circ-stack.h"
+#include "int-arr-stack.h"
 #include "generic-ll-queue.h"
 
 /************************************
